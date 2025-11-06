@@ -1,22 +1,34 @@
-import React, {useState} from 'react'
-import properties from '../data/properties.json'
-import PropertyCard from '../components/PropertyCard'
+import React from 'react';
 
-export default function Browse(){
-  const [loc, setLoc] = useState('All')
-  const [type, setType] = useState('Any')
-  const filtered = properties.filter(p => (loc==='All' || p.location.includes(loc)) && (type==='Any' || p.type===type))
-  const locations = Array.from(new Set(properties.map(p=>p.location.split(',')[0])))
+export default function Browse() {
+  // Sample properties array
+  const properties = [
+    { id: 1, title: "Cozy Apartment in Nairobi", img: "/src/assets/home1.jpg", desc: "2 Beds · 1 Bath · Furnished" },
+    { id: 2, title: "Luxury Villa in Mombasa", img: "/src/assets/home2.jpg", desc: "4 Beds · 3 Baths · Pool" },
+    { id: 3, title: "Modern Studio in Kisumu", img: "/src/assets/home3.jpg", desc: "1 Bed · 1 Bath" },
+  ];
+
   return (
-    <div className="container">
-      <h2>Browse Homes</h2>
-      <div style={{display:'flex', gap:12, marginBottom:12}}>
-        <select onChange={e=>setLoc(e.target.value)}><option value="All">All locations</option>{locations.map(l=> <option key={l} value={l}>{l}</option>)}</select>
-        <select onChange={e=>setType(e.target.value)}><option value="Any">Any stay type</option><option value="Short Stay">Short Stay</option><option value="Long Stay">Long Stay</option></select>
-      </div>
-      <div className="card-grid">
-        {filtered.map((p,i)=> <PropertyCard key={p.id} p={p} index={i} />)}
-      </div>
+    <div className="page-container">
+      <section className="page-hero">
+        <h2>Browse Homes</h2>
+        <p>Explore our curated list of verified properties across Kenya.</p>
+      </section>
+
+      <section className="page-section">
+        <div className="card-grid">
+          {properties.map((prop) => (
+            <div className="card" key={prop.id}>
+              <img src={prop.img} alt={prop.title} />
+              <div className="card-body">
+                <h3>{prop.title}</h3>
+                <p>{prop.desc}</p>
+                <a href={`/property/${prop.id}`} className="cta">View Details</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
-  )
+  );
 }

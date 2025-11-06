@@ -1,31 +1,37 @@
-import React from 'react'
-import properties from '../data/properties.json'
-import PropertyCard from '../components/PropertyCard'
-import { motion } from 'framer-motion'
+import React from 'react';
 
-export default function Home(){
+export default function Home() {
   return (
-    <>
+    <div className="page-container">
+      {/* Hero Section */}
       <section className="hero">
-        <div className="container">
-          <motion.h1 initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6}} style={{fontSize:36, marginBottom:8}}>Find Your Perfect Stay — Short or Long Term Homes Across Kenya</motion.h1>
-          <div className="search" style={{display:'flex', gap:8}}>
-            <input placeholder="Location (e.g., Mombasa)" style={{flex:1,padding:10,border:'1px solid #ddd',borderRadius:4}}/>
-            <select style={{padding:10,border:'1px solid #ddd',borderRadius:4}}>
-              <option>Any duration</option>
-              <option>Short Stay</option>
-              <option>Long Stay</option>
-            </select>
-            <button className="cta">Search</button>
+        <h1>Find Your Perfect Home</h1>
+        <p>Connecting guests with verified homes across Kenya.</p>
+      </section>
+
+      {/* Featured Properties */}
+      <section className="page-section">
+        <h2>Featured Homes</h2>
+        <div className="card-grid">
+          <div className="card">
+            <img src="/src/assets/home1.jpg" alt="Home 1" />
+            <div className="card-body">
+              <h3>Cozy Apartment in Nairobi</h3>
+              <p>2 Beds · 1 Bath · Furnished</p>
+              <a href="/browse" className="cta">View Details</a>
+            </div>
+          </div>
+
+          <div className="card">
+            <img src="/src/assets/home2.jpg" alt="Home 2" />
+            <div className="card-body">
+              <h3>Luxury Villa in Mombasa</h3>
+              <p>4 Beds · 3 Baths · Pool</p>
+              <a href="/browse" className="cta">View Details</a>
+            </div>
           </div>
         </div>
       </section>
-      <section className="container">
-        <h2 style={{marginTop:20}}>Featured Homes</h2>
-        <div className="card-grid">
-          {properties.slice(0,6).map((p, i) => <PropertyCard key={p.id} p={p} index={i} />)}
-        </div>
-      </section>
-    </>
-  )
+    </div>
+  );
 }

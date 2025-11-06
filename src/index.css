@@ -19,9 +19,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Links */
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--gold);
 }
 
 /* === HEADER (Navbar) === */
@@ -29,7 +35,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 60px; /* slightly smaller to balance larger text */
+  padding: 20px 60px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   position: sticky;
   top: 0;
@@ -44,27 +50,23 @@ a {
 /* Logo + text container */
 .logo-area {
   display: flex;
-  align-items: center; /* vertically center text with logo */
-  gap: 16px; /* space between logo and text */
+  align-items: center;
+  gap: 16px;
 }
 
-/* Logo image */
 .logo {
-  height: 100px; /* desktop logo size */
+  height: 100px;
   width: auto;
   object-fit: contain;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
 }
 
-/* Logo text next to logo */
 .logo-text {
-  font-size: 38px; /* larger for prominence */
+  font-size: 38px;
   font-weight: 700;
   color: white;
   font-family: 'Times New Roman', serif;
   white-space: nowrap;
-  line-height: 1.1; /* tighter line-height for vertical alignment */
+  line-height: 1.1;
 }
 
 /* Navigation links */
@@ -74,9 +76,7 @@ a {
 
 .nav a {
   margin: 0 12px;
-  color: white;
   font-weight: bold;
-  transition: color 0.3s ease;
 }
 
 .nav a:hover {
@@ -88,10 +88,14 @@ a {
   background-image: url('/src/assets/homes.PNG');
   background-size: cover;
   background-position: center;
-  padding: 120px 0;
+  padding: 120px 20px;
   color: white;
   text-align: center;
   position: relative;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
 .hero::before {
@@ -99,6 +103,7 @@ a {
   position: absolute;
   inset: 0;
   background: rgba(0, 43, 127, 0.5);
+  border-radius: 12px;
 }
 
 .hero h1 {
@@ -120,6 +125,57 @@ a {
   z-index: 1;
 }
 
+/* === ABOUT / CONTENT PAGES === */
+.about-container, .page-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.about-hero, .page-hero {
+  background: linear-gradient(135deg, #002b7f, #0046b3);
+  color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.about-hero h2, .page-hero h2 {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.about-hero p, .page-hero p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.about-section, .page-section {
+  background: #f2f8f8;
+  padding: 30px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.about-section h3, .page-section h3 {
+  font-size: 28px;
+  color: #002b7f;
+  margin-bottom: 12px;
+}
+
+.about-section p, .page-section p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.contact-section {
+  background: #fff4e0;
+  color: #222;
+}
+
 /* === PROPERTY CARDS === */
 .card-grid {
   display: grid;
@@ -129,17 +185,16 @@ a {
 }
 
 .card {
-  border: 1px solid #eee;
-  border-radius: 6px;
+  border-radius: 12px;
   overflow: hidden;
   background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
@@ -149,17 +204,18 @@ a {
 }
 
 .card-body {
-  padding: 12px;
+  padding: 16px;
 }
 
 .cta {
   display: inline-block;
-  padding: 10px 14px;
-  border-radius: 6px;
+  padding: 12px 18px;
+  border-radius: 8px;
   border: 2px solid var(--gold);
   color: var(--gold);
   text-decoration: none;
   transition: all 0.3s ease;
+  font-weight: bold;
 }
 
 .cta:hover {
@@ -192,11 +248,11 @@ a {
 .footer {
   background: var(--ajidaik-blue);
   color: white;
-  padding: 24px 36px;
-  margin-top: 36px;
+  padding: 36px 24px;
   text-align: center;
   font-size: 15px;
   line-height: 1.6;
+  border-radius: 12px 12px 0 0;
 }
 
 /* === WHATSAPP FLOAT BUTTON === */
@@ -230,15 +286,15 @@ a {
   }
 
   .logo-area {
-    gap: 10px; /* mobile spacing */
+    gap: 10px;
   }
 
   .logo {
-    height: 70px; /* smaller logo for mobile */
+    height: 70px;
   }
 
   .logo-text {
-    font-size: 26px; /* smaller text on mobile */
+    font-size: 26px;
   }
 
   .nav {
@@ -255,6 +311,14 @@ a {
 
   .property-hero {
     flex-direction: column;
+  }
+
+  .about-hero, .page-hero {
+    padding: 24px 16px;
+  }
+
+  .about-section, .page-section {
+    padding: 20px 16px;
   }
 }
 
