@@ -152,12 +152,56 @@ a:hover {
   margin-bottom: 32px;
 }
 
-.about-section, .page-section {
-  background: #f2f8f8;
-  padding: 30px 24px;
+/* === BROWSE HERO (NEW) === */
+.browse-hero {
+  max-width: 1000px;        /* align with grid */
+  margin: 0 auto 32px;      /* center and spacing below */
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 24px;
+  padding: 40px 24px;
+  text-align: center;
+  background: linear-gradient(135deg, #002b7f, #0046b3);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+.browse-hero-content h2 {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.browse-hero-content p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: white;
+}
+
+/* === FILTER SECTION (NEW) === */
+.filters-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 1000px;       /* same width as hero and grid */
+  margin: 0 auto 24px;
+  justify-content: flex-start;
+}
+
+.filters-section select, .filters-section .reset-btn {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.filters-section .reset-btn {
+  background: var(--ajidaik-blue);
+  color: white;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.filters-section .reset-btn:hover {
+  background: var(--gold);
+  color: white;
 }
 
 /* PROPERTY HERO FIX */
@@ -272,12 +316,16 @@ a:hover {
     flex-direction: column;
   }
 
-  .about-hero, .page-hero {
+  .about-hero, .page-hero, .browse-hero {
     padding: 24px 16px;
   }
 
   .about-section, .page-section {
     padding: 20px 16px;
+  }
+
+  .filters-section {
+    justify-content: center;
   }
 }
 
