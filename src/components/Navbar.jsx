@@ -1,9 +1,10 @@
+// src/components/Navbar.jsx
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 
 export default function Navbar() {
-  // Add smooth shrink effect on scroll
+  // Optional scroll effect (you can remove this if not needed)
   useEffect(() => {
     const handleScroll = () => {
       const header = document.querySelector('.header')
@@ -39,6 +40,4 @@ export default function Navbar() {
       </nav>
     </header>
   )
-}
-
 }
