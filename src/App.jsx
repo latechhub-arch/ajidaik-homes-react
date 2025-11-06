@@ -1,3 +1,4 @@
+// src/App.jsx
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
@@ -11,12 +12,12 @@ import ListYourHome from './pages/ListYourHome'
 import About from './pages/About'
 import Contact from './pages/Contact'
 
-export default function App(){
+export default function App() {
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar />
       <ScrollToTop />
-      <main style={{minHeight: '70vh'}}>
+      <main style={{ flex: 1 }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/browse" element={<Browse />} />

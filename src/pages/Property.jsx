@@ -1,15 +1,16 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import properties from '../data/properties.json';
-import InquiryForm from '../components/InquiryForm';
-import WhatsAppButton from '../components/WhatsAppButton';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+// src/pages/Property.jsx
+import React from 'react'
+import { useParams, Link } from 'react-router-dom'
+import properties from '../data/properties.json'
+import InquiryForm from '../components/InquiryForm'
+import WhatsAppButton from '../components/WhatsAppButton'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 export default function Property() {
-  const { id } = useParams();
-  const property = properties.find((x) => x.id === Number(id));
+  const { id } = useParams()
+  const property = properties.find((x) => x.id === Number(id))
 
   if (!property) {
     return (
@@ -18,10 +19,9 @@ export default function Property() {
           <h2>Property not found</h2>
         </div>
       </div>
-    );
+    )
   }
 
-  // Slider settings for gallery
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -29,7 +29,7 @@ export default function Property() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-  };
+  }
 
   return (
     <div className="page-container">
@@ -92,5 +92,5 @@ export default function Property() {
 
       <WhatsAppButton text={`Hello Ajidaik Homes, I am interested in ${property.name}.`} />
     </div>
-  );
+  )
 }

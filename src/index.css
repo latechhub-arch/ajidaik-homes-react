@@ -11,12 +11,15 @@
   box-sizing: border-box;
 }
 
-body {
+body, #root {
   font-family: 'Times New Roman', serif;
   margin: 0;
   background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Links */
@@ -227,24 +230,19 @@ a:hover {
 .property-hero {
   display: flex;
   gap: 18px;
+  flex-wrap: wrap;
   padding: 24px 0;
 }
 
 .property-gallery {
-  flex: 1;
+  flex: 1 1 60%;
 }
 
 .property-info {
-  width: 360px;
+  flex: 1 1 35%;
+  min-width: 300px;
 }
 
-.small-note {
-  font-size: 13px;
-  color: #555;
-  margin-top: 8px;
-}
-
-/* === REACT SLICK CAROUSEL STYLES === */
 .carousel-image {
   width: 100%;
   border-radius: 12px;
@@ -252,6 +250,13 @@ a:hover {
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
+.small-note {
+  font-size: 14px;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* React Slick Carousel Dots */
 .slick-dots li button:before {
   color: var(--ajidaik-blue);
 }
@@ -269,6 +274,7 @@ a:hover {
   font-size: 15px;
   line-height: 1.6;
   border-radius: 12px 12px 0 0;
+  flex-shrink: 0;
 }
 
 /* === WHATSAPP FLOAT BUTTON === */
