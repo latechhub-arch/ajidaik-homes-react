@@ -1,6 +1,6 @@
 /* === AJIDAIK SOLUTIONS WEBSITE THEME === */
 :root {
-  --ajidaik-blue: #002b7f; /* Calm blue tone from logo */
+  --ajidaik-blue: #002b7f; 
   --gold: #d4af37;
   --bg: #ffffff;
   --muted: #f2f8f8;
@@ -11,6 +11,7 @@
   box-sizing: border-box;
 }
 
+/* BODY & ROOT */
 body, #root {
   font-family: 'Times New Roman', serif;
   margin: 0;
@@ -22,7 +23,14 @@ body, #root {
   flex-direction: column;
 }
 
-/* Links */
+main {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* LINKS */
 a {
   color: inherit;
   text-decoration: none;
@@ -33,7 +41,7 @@ a:hover {
   color: var(--gold);
 }
 
-/* === HEADER (Navbar) === */
+/* HEADER */
 .header {
   display: flex;
   align-items: center;
@@ -50,7 +58,7 @@ a:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* Logo + text container */
+/* Logo + Nav */
 .logo-area {
   display: flex;
   align-items: center;
@@ -72,7 +80,6 @@ a:hover {
   line-height: 1.1;
 }
 
-/* Navigation links */
 .nav {
   margin-left: auto;
 }
@@ -86,7 +93,7 @@ a:hover {
   color: var(--gold);
 }
 
-/* === HERO SECTION === */
+/* HERO */
 .hero {
   background-image: url('/src/assets/homes.PNG');
   background-size: cover;
@@ -128,7 +135,7 @@ a:hover {
   z-index: 1;
 }
 
-/* === ABOUT / CONTENT PAGES === */
+/* PAGE / ABOUT SECTIONS */
 .about-container, .page-container {
   max-width: 1000px;
   margin: 40px auto;
@@ -145,16 +152,6 @@ a:hover {
   margin-bottom: 32px;
 }
 
-.about-hero h2, .page-hero h2 {
-  font-size: 36px;
-  margin-bottom: 16px;
-}
-
-.about-hero p, .page-hero p {
-  font-size: 18px;
-  line-height: 1.6;
-}
-
 .about-section, .page-section {
   background: #f2f8f8;
   padding: 30px 24px;
@@ -163,79 +160,17 @@ a:hover {
   margin-bottom: 24px;
 }
 
-.about-section h3, .page-section h3 {
-  font-size: 28px;
-  color: #002b7f;
-  margin-bottom: 12px;
-}
-
-.about-section p, .page-section p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.contact-section {
-  background: #fff4e0;
-  color: #222;
-}
-
-/* === PROPERTY CARDS === */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  padding: 24px 0;
-}
-
-.card {
-  border-radius: 12px;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.card-body {
-  padding: 16px;
-}
-
-.cta {
-  display: inline-block;
-  padding: 12px 18px;
-  border-radius: 8px;
-  border: 2px solid var(--gold);
-  color: var(--gold);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-weight: bold;
-}
-
-.cta:hover {
-  background: var(--gold);
-  color: white;
-}
-
-/* === PROPERTY DETAIL PAGE === */
+/* PROPERTY HERO FIX */
 .property-hero {
   display: flex;
-  gap: 18px;
   flex-wrap: wrap;
+  gap: 18px;
   padding: 24px 0;
 }
 
 .property-gallery {
   flex: 1 1 60%;
+  min-width: 300px;
 }
 
 .property-info {
@@ -243,10 +178,12 @@ a:hover {
   min-width: 300px;
 }
 
+/* Carousel images */
 .carousel-image {
   width: 100%;
   border-radius: 12px;
   object-fit: cover;
+  max-height: 500px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
@@ -265,7 +202,7 @@ a:hover {
   color: var(--gold);
 }
 
-/* === FOOTER === */
+/* FOOTER */
 .footer {
   background: var(--ajidaik-blue);
   color: white;
@@ -277,7 +214,7 @@ a:hover {
   flex-shrink: 0;
 }
 
-/* === WHATSAPP FLOAT BUTTON === */
+/* WHATSAPP BUTTON */
 .whatsapp-float {
   position: fixed;
   right: 20px;
@@ -299,7 +236,7 @@ a:hover {
   font-size: 26px;
 }
 
-/* === RESPONSIVENESS === */
+/* RESPONSIVENESS */
 @media (max-width: 700px) {
   .header {
     flex-direction: column;
@@ -344,7 +281,7 @@ a:hover {
   }
 }
 
-/* === ANIMATIONS === */
+/* ANIMATIONS */
 @keyframes slideDown {
   from {
     transform: translateY(-100%);

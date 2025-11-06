@@ -1,23 +1,22 @@
-// src/App.jsx
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import ScrollToTop from './components/ScrollToTop'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
-import Home from './pages/Home'
-import Browse from './pages/Browse'
-import Property from './pages/Property'
-import ListYourHome from './pages/ListYourHome'
-import About from './pages/About'
-import Contact from './pages/Contact'
+import Home from './pages/Home';
+import Browse from './pages/Browse';
+import Property from './pages/Property';
+import ListYourHome from './pages/ListYourHome';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 export default function App() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar />
       <ScrollToTop />
-      <main style={{ flex: 1 }}>
+      <main style={{ flex: 1, overflowY: 'auto' }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/browse" element={<Browse />} />
@@ -29,5 +28,5 @@ export default function App() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }
