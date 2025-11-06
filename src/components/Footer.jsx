@@ -5,7 +5,7 @@ export default function Footer(){
   return (
     <footer className="footer">
       <div className="container" style={{display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap'}}>
-        <div><img src={logo} alt="logo" style={{height:48}}/></div>
+        <div><img src={logo} alt="logo" style={{height:72}}/></div>
         <div style={{textAlign:'right'}}>
           Ajidaik Solutions · Kenya-wide<br/>
           Phone: +254 117 613 599<br/>
