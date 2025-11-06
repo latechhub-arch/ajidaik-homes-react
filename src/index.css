@@ -42,13 +42,30 @@ a {
   transition: all 0.3s ease;
 }
 
-/* Larger and clearer logo (left-aligned) */
-.header img {
+/* Logo + text container */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between logo and text */
+}
+
+/* Logo image */
+.logo {
   height: 120px;
   width: auto;
   object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+  transition: all 0.3s ease;
+}
+
+/* Logo text next to logo */
+.logo-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  font-family: 'Times New Roman', serif;
+  white-space: nowrap;
   transition: all 0.3s ease;
 }
 
@@ -59,8 +76,12 @@ a {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
-.header.shrink img {
+.header.shrink .logo {
   height: 80px;
+}
+
+.header.shrink .logo-text {
+  font-size: 22px;
 }
 
 /* Navigation links */
@@ -220,11 +241,33 @@ a {
 /* === RESPONSIVENESS === */
 @media (max-width: 700px) {
   .header {
+    flex-direction: column;
+    align-items: flex-start;
     padding: 16px 24px;
   }
 
-  .header img {
-    height: 90px;
+  .logo-area {
+    gap: 8px;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+
+  .nav {
+    margin-left: 0;
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav a {
+    font-size: 14px;
   }
 
   .property-hero {
