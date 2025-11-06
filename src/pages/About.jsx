@@ -8,7 +8,7 @@ export default function About(){
       <h3>Our Mission</h3>
       <p>To provide reliable, clean, and professionally managed homes for guests across Kenya.</p>
       <h3>Contact</h3>
-      <p>Bamburi, Mombasa · +254117613599 · info@ajidaiksolutions.co.ke</p>
+      <p>Bamburi, Mombasa · +254117613599 · homes@ajidaiksolutions.co.ke</p>
     </div>
   )
 }
