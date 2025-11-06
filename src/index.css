@@ -1,29 +1,3 @@
-/* === AJIDAIK SOLUTIONS WEBSITE THEME === */
-:root {
-  --ajidaik-blue: #002b7f; /* Calm blue tone from logo */
-  --gold: #d4af37;
-  --bg: #ffffff;
-  --muted: #f2f8f8;
-  --text: #222222;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Times New Roman', serif;
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 /* === HEADER (Navbar) === */
 .header {
   display: flex;
@@ -61,27 +35,11 @@ a {
 
 /* Logo text next to logo */
 .logo-text {
-  font-size: 28px;
+  font-size: 36px; /* Increased font size */
   font-weight: bold;
   color: white;
   font-family: 'Times New Roman', serif;
   white-space: nowrap;
-  transition: all 0.3s ease;
-}
-
-/* Header shrink on scroll */
-.header.shrink {
-  padding: 12px 48px;
-  background: rgba(0, 43, 127, 0.98);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-}
-
-.header.shrink .logo {
-  height: 80px;
-}
-
-.header.shrink .logo-text {
-  font-size: 22px;
 }
 
 /* Navigation links */
@@ -100,144 +58,6 @@ a {
   color: var(--gold);
 }
 
-/* === HERO SECTION === */
-.hero {
-  background-image: url('/src/assets/homes.PNG');
-  background-size: cover;
-  background-position: center;
-  padding: 120px 0;
-  color: white;
-  text-align: center;
-  position: relative;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 43, 127, 0.5);
-}
-
-.hero h1 {
-  position: relative;
-  font-size: 48px;
-  z-index: 1;
-}
-
-.hero .search {
-  position: relative;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 16px;
-  max-width: 900px;
-  border-radius: 6px;
-  margin: 40px auto 0;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  z-index: 1;
-}
-
-/* === PROPERTY CARDS === */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  padding: 24px 0;
-}
-
-.card {
-  border: 1px solid #eee;
-  border-radius: 6px;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-}
-
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.card-body {
-  padding: 12px;
-}
-
-.cta {
-  display: inline-block;
-  padding: 10px 14px;
-  border-radius: 6px;
-  border: 2px solid var(--gold);
-  color: var(--gold);
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.cta:hover {
-  background: var(--gold);
-  color: white;
-}
-
-/* === PROPERTY DETAIL PAGE === */
-.property-hero {
-  display: flex;
-  gap: 18px;
-  padding: 24px 0;
-}
-
-.property-gallery {
-  flex: 1;
-}
-
-.property-info {
-  width: 360px;
-}
-
-.small-note {
-  font-size: 13px;
-  color: #555;
-  margin-top: 8px;
-}
-
-/* === FOOTER === */
-.footer {
-  background: var(--ajidaik-blue);
-  color: white;
-  padding: 24px 36px;
-  margin-top: 36px;
-  text-align: center;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-/* === WHATSAPP FLOAT BUTTON === */
-.whatsapp-float {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 999;
-}
-
-.whatsapp-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, #25d366, #128c7e);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-  color: white;
-  text-decoration: none;
-  font-size: 26px;
-}
-
 /* === RESPONSIVENESS === */
 @media (max-width: 700px) {
   .header {
@@ -251,11 +71,11 @@ a {
   }
 
   .logo {
-    height: 60px;
+    height: 80px; /* slightly smaller on mobile */
   }
 
   .logo-text {
-    font-size: 20px;
+    font-size: 28px; /* larger text on mobile but smaller than desktop */
   }
 
   .nav {
@@ -268,21 +88,5 @@ a {
 
   .nav a {
     font-size: 14px;
-  }
-
-  .property-hero {
-    flex-direction: column;
-  }
-}
-
-/* === ANIMATIONS === */
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
   }
 }
