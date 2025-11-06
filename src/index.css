@@ -244,6 +244,22 @@ a:hover {
   margin-top: 8px;
 }
 
+/* === REACT SLICK CAROUSEL STYLES === */
+.carousel-image {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.slick-dots li button:before {
+  color: var(--ajidaik-blue);
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--gold);
+}
+
 /* === FOOTER === */
 .footer {
   background: var(--ajidaik-blue);

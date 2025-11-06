@@ -1,53 +1,96 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import properties from '../data/properties.json'
-import InquiryForm from '../components/InquiryForm'
-import WhatsAppButton from '../components/WhatsAppButton'
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
+import properties from '../data/properties.json';
+import InquiryForm from '../components/InquiryForm';
+import WhatsAppButton from '../components/WhatsAppButton';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-export default function Property(){
-  const { id } = useParams()
-  const p = properties.find(x => x.id === Number(id))
-  if(!p) return <div className="container"><h2>Property not found</h2></div>
+export default function Property() {
+  const { id } = useParams();
+  const property = properties.find((x) => x.id === Number(id));
+
+  if (!property) {
+    return (
+      <div className="page-container">
+        <div className="page-hero">
+          <h2>Property not found</h2>
+        </div>
+      </div>
+    );
+  }
+
+  // Slider settings for gallery
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+  };
+
   return (
-    <div className="container">
+    <div className="page-container">
+      <div className="page-hero">
+        <h2>{property.name}</h2>
+        <p className="small-note">{property.location} · {property.type} · {property.price}</p>
+      </div>
+
       <div className="property-hero">
         <div className="property-gallery">
-          <img src={p.image} alt={p.name} style={{width:'100%', borderRadius:6}}/>
-          <div style={{display:'flex', gap:8, marginTop:8}}>
-            <img src="/src/assets/sample_properties/prop2.jpg" style={{width:120,height:80,objectFit:'cover'}}/>
-            <img src="/src/assets/sample_properties/prop3.jpg" style={{width:120,height:80,objectFit:'cover'}}/>
-            <img src="/src/assets/sample_properties/prop4.jpg" style={{width:120,height:80,objectFit:'cover'}}/>
-          </div>
+          <Slider {...sliderSettings}>
+            <img src={property.image} alt={property.name} className="carousel-image" />
+            <img src="/src/assets/sample_properties/prop2.jpg" alt="Sample" className="carousel-image" />
+            <img src="/src/assets/sample_properties/prop3.jpg" alt="Sample" className="carousel-image" />
+            <img src="/src/assets/sample_properties/prop4.jpg" alt="Sample" className="carousel-image" />
+          </Slider>
         </div>
-        <aside className="property-info">
-          <h2>{p.name}</h2>
-          <div className="small-note">{p.location} · {p.type} · {p.price}</div>
-          <div style={{marginTop:12}}>
+
+        <aside className="property-info page-section">
+          <h3>Property Details</h3>
+          <p className="small-note">{property.location} · {property.type} · {property.price}</p>
+
+          <div style={{ marginTop: 16 }}>
             <h4>Amenities</h4>
-            <ul><li>Wi-Fi</li><li>Parking</li><li>Kitchen</li><li>24/7 Support</li></ul>
+            <ul>
+              <li>Wi-Fi</li>
+              <li>Parking</li>
+              <li>Kitchen</li>
+              <li>24/7 Support</li>
+            </ul>
           </div>
-          <div style={{marginTop:12}}>
-            <h4>Inquire about this property</h4>
-            <InquiryForm propertyName={p.name} />
+
+          <div style={{ marginTop: 16 }}>
+            <h4>Inquire About This Property</h4>
+            <InquiryForm propertyName={property.name} />
           </div>
         </aside>
       </div>
-      <section style={{padding:'24px 0'}}>
+
+      <section className="page-section">
         <h3>Other Homes You May Like</h3>
         <div className="card-grid">
-          {properties.filter(x=>x.id!==p.id).slice(0,4).map((q,i)=>(
-            <div key={q.id} className="card">
-              <img src={q.image} alt={q.name} />
-              <div className="card-body">
-                <h4>{q.name}</h4>
-                <div className="small-note">{q.location} · {q.type} · {q.price}</div>
-                <p style={{marginTop:8}}><a className="cta" href={`/property/${q.id}`}>View Details</a></p>
+          {properties
+            .filter((x) => x.id !== property.id)
+            .slice(0, 4)
+            .map((p) => (
+              <div key={p.id} className="card">
+                <img src={p.image} alt={p.name} />
+                <div className="card-body">
+                  <h4>{p.name}</h4>
+                  <p className="small-note">{p.location} · {p.type} · {p.price}</p>
+                  <Link className="cta" to={`/property/${p.id}`}>
+                    View Details
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </section>
-      <WhatsAppButton text={`Hello Ajidaik Homes, I am interested in ${p.name}.`} />
+
+      <WhatsAppButton text={`Hello Ajidaik Homes, I am interested in ${property.name}.`} />
     </div>
-  )
+  );
 }
