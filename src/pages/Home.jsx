@@ -1,3 +1,4 @@
+// src/pages/Home.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
@@ -7,7 +8,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export default function Home() {
-  const featuredProperties = properties.slice(0, 6); // show more for carousel
+  const featuredProperties = properties.slice(0, 6); // more for carousel
 
   // React Slick settings
   const sliderSettings = {
@@ -18,30 +19,55 @@ export default function Home() {
     slidesToScroll: 1,
     arrows: true,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2 }
-      },
-      {
-        breakpoint: 700,
-        settings: { slidesToShow: 1 }
-      }
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 700, settings: { slidesToShow: 1 } }
     ]
   };
 
   return (
-    <div className="page-container">
+    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
       {/* Hero Section */}
-      <section className="hero">
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          <h1>Find Your Perfect Home with Ajidaik Homes</h1>
-          <p style={{ fontSize: '20px', marginTop: '12px' }}>
+      <section
+        style={{
+          position: 'relative',
+          borderRadius: '12px',
+          margin: '20px 0',
+          overflow: 'hidden',
+          backgroundImage: `url('/src/assets/homes.PNG')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          boxShadow: '0 6px 20px rgba(0,0,0,0.3)',
+          minHeight: '400px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        {/* Overlay */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'rgba(0, 43, 127, 0.25)',
+          }}
+        />
+        {/* Hero Content */}
+        <div style={{ position: 'relative', textAlign: 'center', color: 'white', zIndex: 1, padding: '0 20px' }}>
+          <h1 style={{ fontSize: '48px', marginBottom: '12px' }}>Find Your Perfect Home with Ajidaik Homes</h1>
+          <p style={{ fontSize: '20px', marginBottom: '20px' }}>
             Discover professionally managed, verified homes across Kenya.
           </p>
-          <Link 
-            to="/browse" 
-            className="cta" 
-            style={{ marginTop: '20px', display: 'inline-block' }}
+          <Link
+            to="/browse"
+            style={{
+              display: 'inline-block',
+              padding: '12px 24px',
+              borderRadius: '8px',
+              backgroundColor: '#d4af37',
+              color: 'white',
+              fontWeight: 'bold',
+              textDecoration: 'none'
+            }}
           >
             Browse Homes
           </Link>
@@ -49,17 +75,39 @@ export default function Home() {
       </section>
 
       {/* Featured Properties Carousel */}
-      <section className="page-section">
-        <h2 style={{ marginBottom: '24px', color: '#002b7f' }}>Featured Homes</h2>
+      <section style={{ margin: '40px 0' }}>
+        <h2 style={{ marginBottom: '24px', color: '#002b7f', textAlign: 'center' }}>Featured Homes</h2>
         <Slider {...sliderSettings}>
-          {featuredProperties.map((property) => (
+          {featuredProperties.map(property => (
             <div key={property.id} style={{ padding: '0 8px' }}>
-              <div className="card" style={{ borderRadius: '12px', overflow: 'hidden' }}>
-                <img src={property.image} alt={property.name} style={{ height: '220px', objectFit: 'cover' }} />
-                <div className="card-body" style={{ textAlign: 'center' }}>
+              <div style={{
+                borderRadius: '12px',
+                overflow: 'hidden',
+                boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
+                background: 'white'
+              }}>
+                <img
+                  src={property.image}
+                  alt={property.name}
+                  style={{ width: '100%', height: '220px', objectFit: 'cover' }}
+                />
+                <div style={{ padding: '16px', textAlign: 'center' }}>
                   <h4 style={{ margin: '12px 0 8px' }}>{property.name}</h4>
-                  <p className="small-note">{property.location} · {property.type} · {property.price}</p>
-                  <Link className="cta" to={`/property/${property.id}`} style={{ marginTop: '8px', display: 'inline-block' }}>
+                  <p style={{ fontSize: '14px', color: '#555', marginBottom: '12px' }}>
+                    {property.location} · {property.type} · {property.price}
+                  </p>
+                  <Link
+                    to={`/property/${property.id}`}
+                    style={{
+                      display: 'inline-block',
+                      padding: '8px 16px',
+                      borderRadius: '8px',
+                      border: '2px solid #d4af37',
+                      color: '#d4af37',
+                      fontWeight: 'bold',
+                      textDecoration: 'none'
+                    }}
+                  >
                     View Details
                   </Link>
                 </div>
@@ -68,26 +116,52 @@ export default function Home() {
           ))}
         </Slider>
         <div style={{ textAlign: 'center', marginTop: '24px' }}>
-          <Link to="/browse" className="cta">
+          <Link
+            to="/browse"
+            style={{
+              display: 'inline-block',
+              padding: '12px 24px',
+              borderRadius: '8px',
+              backgroundColor: '#002b7f',
+              color: 'white',
+              fontWeight: 'bold',
+              textDecoration: 'none'
+            }}
+          >
             Browse All Homes
           </Link>
         </div>
       </section>
 
-      {/* Call to Action: List Your Home */}
-      <section 
-        className="page-section" 
-        style={{ textAlign: 'center', background: '#f2f8f8', padding: '40px 24px', borderRadius: '12px', margin: '40px 0' }}
-      >
+      {/* Call to Action */}
+      <section style={{
+        textAlign: 'center',
+        background: '#f2f8f8',
+        padding: '40px 24px',
+        borderRadius: '12px',
+        margin: '40px 0'
+      }}>
         <h3 style={{ color: '#002b7f', marginBottom: '16px' }}>Have a Property to List?</h3>
         <p style={{ fontSize: '16px', marginBottom: '24px' }}>
           Join Ajidaik Homes and reach thousands of potential guests across Kenya.
         </p>
-        <Link to="/list-your-home" className="cta">
+        <Link
+          to="/list-your-home"
+          style={{
+            display: 'inline-block',
+            padding: '12px 24px',
+            borderRadius: '8px',
+            backgroundColor: '#d4af37',
+            color: 'white',
+            fontWeight: 'bold',
+            textDecoration: 'none'
+          }}
+        >
           List Your Home
         </Link>
       </section>
 
+      {/* WhatsApp Button */}
       <WhatsAppButton text="Hello Ajidaik Homes, I am interested in learning more about your homes." />
     </div>
   );
