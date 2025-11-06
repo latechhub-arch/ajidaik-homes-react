@@ -13,7 +13,7 @@ export default function Navbar(){
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
       </nav>
-      <div className="contact" style={{marginLeft:12, fontSize:14, color:'#444'}}>Bamburi, Mombasa · +254117613599 · info@ajidaiksolutions.co.ke</div>
+      {/* Contact info removed for a cleaner, countrywide look */}
     </header>
   )
 }
