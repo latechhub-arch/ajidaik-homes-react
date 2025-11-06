@@ -29,7 +29,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 60px;
+  padding: 20px 60px; /* slightly smaller to balance larger text */
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   position: sticky;
   top: 0;
@@ -39,49 +39,32 @@ a {
   backdrop-filter: blur(10px);
   animation: slideDown 0.6s ease-out;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
 }
 
 /* Logo + text container */
 .logo-area {
   display: flex;
-  align-items: center;
-  gap: 12px; /* Space between logo and text */
+  align-items: center; /* vertically center text with logo */
+  gap: 16px; /* space between logo and text */
 }
 
 /* Logo image */
 .logo {
-  height: 120px;
+  height: 100px; /* desktop logo size */
   width: auto;
   object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  transition: all 0.3s ease;
 }
 
 /* Logo text next to logo */
 .logo-text {
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 38px; /* larger for prominence */
+  font-weight: 700;
   color: white;
   font-family: 'Times New Roman', serif;
   white-space: nowrap;
-  transition: all 0.3s ease;
-}
-
-/* Header shrink on scroll */
-.header.shrink {
-  padding: 12px 48px;
-  background: rgba(0, 43, 127, 0.98);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-}
-
-.header.shrink .logo {
-  height: 80px;
-}
-
-.header.shrink .logo-text {
-  font-size: 22px;
+  line-height: 1.1; /* tighter line-height for vertical alignment */
 }
 
 /* Navigation links */
@@ -247,15 +230,15 @@ a {
   }
 
   .logo-area {
-    gap: 8px;
+    gap: 10px; /* mobile spacing */
   }
 
   .logo {
-    height: 60px;
+    height: 70px; /* smaller logo for mobile */
   }
 
   .logo-text {
-    font-size: 20px;
+    font-size: 26px; /* smaller text on mobile */
   }
 
   .nav {

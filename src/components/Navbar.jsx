@@ -1,22 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
 export default function Navbar() {
-  // Scroll effect for shrinking header
-  useEffect(() => {
-    const handleScroll = () => {
-      const header = document.querySelector('.header');
-      if (window.scrollY > 50) {
-        header.classList.add('shrink');
-      } else {
-        header.classList.remove('shrink');
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <header className="header">
       {/* Logo and text */}
