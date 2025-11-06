@@ -1,11 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
 import properties from '../data/properties.json';
 import WhatsAppButton from '../components/WhatsAppButton';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export default function Home() {
-  // Show first 4 properties as featured
-  const featuredProperties = properties.slice(0, 4);
+  const featuredProperties = properties.slice(0, 6); // show more for carousel
+
+  // React Slick settings
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 2 }
+      },
+      {
+        breakpoint: 700,
+        settings: { slidesToShow: 1 }
+      }
+    ]
+  };
 
   return (
     <div className="page-container">
@@ -26,24 +48,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Properties */}
+      {/* Featured Properties Carousel */}
       <section className="page-section">
         <h2 style={{ marginBottom: '24px', color: '#002b7f' }}>Featured Homes</h2>
-        <div className="card-grid">
+        <Slider {...sliderSettings}>
           {featuredProperties.map((property) => (
-            <div key={property.id} className="card">
-              <img src={property.image} alt={property.name} />
-              <div className="card-body">
-                <h4>{property.name}</h4>
-                <p className="small-note">{property.location} · {property.type} · {property.price}</p>
-                <Link className="cta" to={`/property/${property.id}`}>
-                  View Details
-                </Link>
+            <div key={property.id} style={{ padding: '0 8px' }}>
+              <div className="card" style={{ borderRadius: '12px', overflow: 'hidden' }}>
+                <img src={property.image} alt={property.name} style={{ height: '220px', objectFit: 'cover' }} />
+                <div className="card-body" style={{ textAlign: 'center' }}>
+                  <h4 style={{ margin: '12px 0 8px' }}>{property.name}</h4>
+                  <p className="small-note">{property.location} · {property.type} · {property.price}</p>
+                  <Link className="cta" to={`/property/${property.id}`} style={{ marginTop: '8px', display: 'inline-block' }}>
+                    View Details
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
-        </div>
-        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+        </Slider>
+        <div style={{ textAlign: 'center', marginTop: '24px' }}>
           <Link to="/browse" className="cta">
             Browse All Homes
           </Link>
