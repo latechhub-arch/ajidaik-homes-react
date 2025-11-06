@@ -10,19 +10,21 @@ export default function Home() {
   return (
     <div className="page-container">
       {/* Hero Section */}
-      <div className="hero">
-        <h1>Find Your Perfect Home with Ajidaik Homes</h1>
-        <p style={{ fontSize: '20px', marginTop: '12px' }}>
-          Discover professionally managed, verified homes across Kenya.
-        </p>
-        <Link 
-          to="/browse" 
-          className="cta" 
-          style={{ marginTop: '20px', display: 'inline-block' }}
-        >
-          Browse Homes
-        </Link>
-      </div>
+      <section className="hero">
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <h1>Find Your Perfect Home with Ajidaik Homes</h1>
+          <p style={{ fontSize: '20px', marginTop: '12px' }}>
+            Discover professionally managed, verified homes across Kenya.
+          </p>
+          <Link 
+            to="/browse" 
+            className="cta" 
+            style={{ marginTop: '20px', display: 'inline-block' }}
+          >
+            Browse Homes
+          </Link>
+        </div>
+      </section>
 
       {/* Featured Properties */}
       <section className="page-section">
@@ -41,12 +43,20 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <Link to="/browse" className="cta">
+            Browse All Homes
+          </Link>
+        </div>
       </section>
 
-      {/* Call to action */}
-      <section className="page-section" style={{ textAlign: 'center', background: '#f2f8f8' }}>
-        <h3>Have a Property to List?</h3>
-        <p style={{ fontSize: '16px', marginBottom: '16px' }}>
+      {/* Call to Action: List Your Home */}
+      <section 
+        className="page-section" 
+        style={{ textAlign: 'center', background: '#f2f8f8', padding: '40px 24px', borderRadius: '12px', margin: '40px 0' }}
+      >
+        <h3 style={{ color: '#002b7f', marginBottom: '16px' }}>Have a Property to List?</h3>
+        <p style={{ fontSize: '16px', marginBottom: '24px' }}>
           Join Ajidaik Homes and reach thousands of potential guests across Kenya.
         </p>
         <Link to="/list-your-home" className="cta">
