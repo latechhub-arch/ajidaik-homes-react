@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Palm Breeze Apartments",
+    "location": "Nyali, Mombasa",
+    "type": "Short Stay",
+    "price": "Ksh 12,000 / night",
+    "image": "/src/assets/sample_properties/prop1.jpg",
+    "description": "Modern ocean-view serviced apartment near Nyali Beach."
+  },
+  {
+    "id": 2,
+    "name": "Savannah Heights Villas",
+    "location": "Karen, Nairobi",
+    "type": "Long Stay",
+    "price": "Ksh 250,000 / month",
+    "image": "/src/assets/sample_properties/prop2.jpg",
+    "description": "3BR luxury villa with garden, gym & private parking."
+  },
+  {
+    "id": 3,
+    "name": "Lakeview Retreat",
+    "location": "Naivasha",
+    "type": "Short Stay",
+    "price": "Ksh 15,000 / night",
+    "image": "/src/assets/sample_properties/prop3.jpg",
+    "description": "Cozy cottage overlooking Lake Naivasha."
+  },
+  {
+    "id": 4,
+    "name": "Green Haven Residence",
+    "location": "Thika",
+    "type": "Long Stay",
+    "price": "Ksh 80,000 / month",
+    "image": "/src/assets/sample_properties/prop4.jpg",
+    "description": "Quiet gated community with easy highway access."
+  },
+  {
+    "id": 5,
+    "name": "Seaside Haven Studio",
+    "location": "Diani Beach",
+    "type": "Short Stay",
+    "price": "Ksh 10,000 / night",
+    "image": "/src/assets/sample_properties/prop5.jpg",
+    "description": "Beachfront studio with balcony & pool."
+  },
+  {
+    "id": 6,
+    "name": "Mountain Crest Cottage",
+    "location": "Nanyuki",
+    "type": "Short Stay",
+    "price": "Ksh 18,000 / night",
+    "image": "/src/assets/sample_properties/prop6.jpg",
+    "description": "Timber cabin with views of Mt. Kenya."
+  },
+  {
+    "id": 7,
+    "name": "Urban Pearl Suites",
+    "location": "Westlands, Nairobi",
+    "type": "Long Stay",
+    "price": "Ksh 180,000 / month",
+    "image": "/src/assets/sample_properties/prop7.jpg",
+    "description": "Fully furnished apartment ideal for corporate tenants."
+  },
+  {
+    "id": 8,
+    "name": "Royal Palm Estate",
+    "location": "Kisumu",
+    "type": "Long Stay",
+    "price": "Ksh 95,000 / month",
+    "image": "/src/assets/sample_properties/prop8.jpg",
+    "description": "4BR modern bungalow near Lake Victoria."
+  },
+  {
+    "id": 9,
+    "name": "Tamarind Hill House",
+    "location": "Nakuru",
+    "type": "Short Stay",
+    "price": "Ksh 13,500 / night",
+    "image": "/src/assets/sample_properties/prop1.jpg",
+    "description": "Spacious home with modern finishes."
+  },
+  {
+    "id": 10,
+    "name": "Serenity Homes",
+    "location": "Eldoret",
+    "type": "Long Stay",
+    "price": "Ksh 70,000 / month",
+    "image": "/src/assets/sample_properties/prop2.jpg",
+    "description": "Family-friendly home with secure parking & garden."
+  }
+]
